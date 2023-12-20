@@ -1,2 +1,2 @@
-# ObscureFlashback
-ObscureFlashback - a tiny JS memory obfuscation tool
+# ObscureReference
+ObscureReference - a tiny JS memory obfuscation tool

@@ -1,0 +1,12 @@
+{
+  "name": "obscure-reference",
+  "version": "1.0.0",
+  "description": "obscure-reference - a tiny JS memory obfuscation tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
