@@ -1,15 +1,17 @@
-const { fromEntries, entries, create, keys, defineProperty } = Object;
+const { entries, create, defineProperty } = Object;
 const { isArray } = Array;
+const { random } = Math;
+// TODO: more defensive coding
 
 const getCharValue = (c) =>
   typeof c === "number" ? String.fromCharCode(c) : c;
-const saveCharValue = (c) => (Math.random() > 0.5 ? c.charCodeAt(0) : c);
+const saveCharValue = (c) => (random() > 0.5 ? c.charCodeAt(0) : c);
 
 // in-memory structures
 module.exports.stores = [
   function asRev(str) {
     const storage = str.split("").reverse().join("");
-    str = null; //for good measure
+    str = ""; //for good measure
     return {
       toJSON: () => storage,
       toString: () => storage.split("").reverse().join(""),
@@ -17,7 +19,7 @@ module.exports.stores = [
   },
   function asArray(str) {
     const storage = str.split("").map(saveCharValue);
-    str = null; //for good measure
+    str = ""; //for good measure
     return {
       toJSON: () => storage,
       toString: () => storage.map(getCharValue).join(""),
@@ -29,9 +31,9 @@ module.exports.stores = [
       .split("")
       .map((c, i) => [`${i}`, c])
       //assigning in random order should be reflected in how the object is actually stored
-      .sort(() => Math.random() - 0.5)
+      .sort(() => random() - 0.5)
       .forEach(([k, v]) => {
-        if (Math.random() > 0.5) {
+        if (random() > 0.5) {
           storage[k] = saveCharValue(v);
         } else {
           defineProperty(storage, k, {
@@ -42,7 +44,7 @@ module.exports.stores = [
           });
         }
       });
-    str = null; //for good measure
+    str = ""; //for good measure
     return {
       toJSON: () => storage,
       toString: () =>

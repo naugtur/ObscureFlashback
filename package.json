@@ -4,6 +4,7 @@
   "description": "obscure-reference - a tiny JS memory obfuscation tool",
   "main": "index.js",
   "scripts": {
+    "e2e": "node --expose_gc ./e2e/level1.e2e.js && node --expose_gc ./e2e/level2.e2e.js",
     "test": "node --test"
   },
   "keywords": [],
