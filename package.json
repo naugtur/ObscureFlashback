@@ -5,9 +5,12 @@
   "main": "index.js",
   "scripts": {
     "e2e": "node --expose_gc ./e2e/level1.e2e.js && node --expose_gc ./e2e/level2.e2e.js",
-    "test": "node --test"
+    "test": "node --test && npm run e2e"
   },
+  "files": [
+    "obscure.js"
+  ],
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "Apache-2.0"
 }

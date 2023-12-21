@@ -1,7 +1,7 @@
 const test = require("node:test");
 const assert = require("node:assert");
 
-const { stores, decode } = require("../stores.js");
+const { stores, decode } = require("../obscure.js").__TEST__;
 
 text = "hello world";
 stores.forEach((store) => {
