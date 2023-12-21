@@ -46,7 +46,7 @@ secret.toString() // returns back the string representation
 `your secret is ${secret}` // works as expected
 
 const serialized = JSON.stringify(secret);
-// `serialized` can be saved in browser.storage.session for an extension 
+// `secret` is JSON serializable so it can be saved in browser.storage.session for an extension too
 const secret2 = ObscureReference.fromJSON(serialized); // The only unusual step
 
 ```

@@ -1,8 +1,8 @@
 {
-  "name": "obscure-reference",
+  "name": "@naugtur/obscure-reference",
   "version": "1.0.0",
   "description": "obscure-reference - a tiny JS memory obfuscation tool",
-  "main": "index.js",
+  "main": "obscure.js",
   "scripts": {
     "e2e": "node --expose_gc ./e2e/level1.e2e.js && node --expose_gc ./e2e/level2.e2e.js",
     "test": "node --test && npm run e2e"
@@ -10,7 +10,7 @@
   "files": [
     "obscure.js"
   ],
-  "keywords": [],
-  "author": "",
+  "keywords": ["obfuscation","memory","obscurity","security"],
+  "author": "naugtur",
   "license": "Apache-2.0"
 }
