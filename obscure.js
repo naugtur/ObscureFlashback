@@ -1,4 +1,4 @@
-const { min, ceil, random } = Math;
+const { min, ceil, random, floor } = Math;
 const { entries, create, defineProperty } = Object;
 const { isArray } = Array;
 // TODO: more defensive coding
@@ -97,13 +97,14 @@ module.exports.ObscureReference = function (str) {
       "There's no point in considering strings shorter than 5 characters a secret."
     );
   }
+
   let splitSizeTarget = min(
     ceil(str.length / MIN_CHUNK_NUMBER),
     DESIRED_CHUNK_SIZE
   );
   const splitter = splitSizeN(splitSizeTarget);
   let chunks = splitter(str);
-  const obscure = chunks.map((c, i) => stores[i % stores.length](c));
+  const obscure = chunks.map((c) => stores[floor(random() * stores.length)](c));
   chunks = []; //for good measure
   str = ""; //for good measure
   splitSizeTarget = 0; //for good measure

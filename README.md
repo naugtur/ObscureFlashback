@@ -42,9 +42,13 @@ const secret = ObscureReference(functionYouGetyourSecretFrom());
 // then hold on to `secret` for as long as you want and unless you use it, it's gonna be hard to steal it from memory
 
 secret.toString() // returns back the string representation
+"your secret is:"+secret // works as expected
+`your secret is ${secret}` // works as expected
 
 const serialized = JSON.stringify(secret);
-const secret2 = ObscureReference.fromJSON(serialized);
+// `serialized` can be saved in browser.storage.session for an extension 
+const secret2 = ObscureReference.fromJSON(serialized); // The only unusual step
+
 ```
 
 ## TODO
